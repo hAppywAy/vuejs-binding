@@ -9,6 +9,88 @@
 </head>
 <body>
   <div id="app">
+    <div v-for="(user, indexOfUser) in users" :key="indexOfUser">
+      <div v-if="user.gender === 'female'" class="female">
+        <div>{{user.name}}</div>
+        <div>{{user.firstname}}</div>
+        <div>{{user.age}}</div>
+        <div>{{user.gender}}</div>
+        <hr>
+        <div v-for="(hobbie, indexOfHobbie) in user.hobbies" :key="indexOfHobbie">
+            {{hobbie}}
+            <span v-show="false">{{indexOfHobbie}}</span>
+        </div>
+      </div>
+      <div v-else-if="user.gender === 'male'" class="male">
+        <div>{{user.name}}</div>
+        <div>{{user.firstname}}</div>
+        <div>{{user.age}}</div>
+        <div>{{user.gender}}</div>
+        <hr>
+        <div v-for="(hobbie, indexOfHobbie) in user.hobbies" :key="indexOfHobbie">
+            {{hobbie}}
+            <span v-show="false">{{indexOfHobbie}}</span>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    No repetition
+    <hr>
+    <!-- 
+      v-bind:class="{
+        'maClasseCss': boolean
+      }"
+      :class="{
+        'maClasseCss': boolean
+      }"
+      v-bind:style="test ? 'color': 'red' : ''"
+      :style="test ? 'color': 'red' : ''"
+     -->
+     <!-- Style binding -->
+     <div 
+     v-for="(user, indexOfUser) in users" 
+     :key="indexOfUser"
+     :style="'color: red'"
+     style="color: red" 
+     :style="
+       user.gender === 'female' ? 
+       'color: red' : 'color: blue'"
+   >
+     <div>{{user.name}}</div>
+     <div>{{user.firstname}}</div>
+     <div>{{user.age}}</div>
+     <div>{{user.gender}}</div>
+     <hr>
+     <div v-for="(hobbie, indexOfHobbie) in user.hobbies" :key="indexOfHobbie">
+         {{hobbie}}
+         <span v-show="false">{{indexOfHobbie}}</span>
+     </div>
+   </div>
+   <!-- Class binding -->
+   <div 
+    v-for="(user, indexOfUser) in users" 
+    :key="indexOfUser" 
+    :class="
+       {
+         'female': user.gender === 'female',
+         'male': user.gender === 'male',
+       }
+     "
+  >
+    <div>{{user.name}}</div>
+    <div>{{user.firstname}}</div>
+    <div>{{user.age}}</div>
+    <div>{{user.gender}}</div>
+    <hr>
+    <div v-for="(hobbie, indexOfHobbie) in user.hobbies" :key="indexOfHobbie">
+        {{hobbie}}
+        <span v-show="false">{{indexOfHobbie}}</span>
+    </div>
+  </div>
+  </div>
     
   </div>
 <!-- script vuejs -->

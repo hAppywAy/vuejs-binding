@@ -11,3 +11,11 @@
   .text-bold {
     font-weight: bold;
   }
+
+  .female {
+    color: red;
+  }
+
+  .male {
+    color: blue;
+  }

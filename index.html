@@ -9,9 +9,36 @@
 <body>
   <!-- data binding d'attribut simple (texte ou number) -->
   <!-- Afficher les infos d'un user : firstname, lastname, age -->
+  <div id="toto">
+    {{monNombre}}
+    <div>
+      {{user.firstname}} {{user.lastname}}
+    </div>
+    <span>{{textBim}}</span>
+    <div v-if="isActive">C'est actif</div>
+    <!-- directives conditionnelles v-if v-else-if v-else -->
+    <div 
+      v-else-if="user.firstname === 'Joe'"
+    >
+      C'est Flavien
+    </div>
+    <div v-else>C'est inactif</div>
+    <span v-show="show">Display: none</span>
 
-  <!-- directives conditionnelles v-if v-else-if v-else -->
+    <!-- utiliser v-for -->
+    <!-- afficher bim, bam et boom dans des div differentes -->
+    <div v-for="(string, i) in anArrayOfStrings" :key="i">
+        {{string}}
+    </div>
+    <!-- puis afficher "bim. bam, boom" -->
+    <span v-for="(string, i) in anArrayOfStrings" :key="i">
+      {{string}},
+    </span>
+    {{anArrayOfStrings.join(", ")}}
+  </div>
 
+  <!-- Ne comprends pas est en dehors du el -->
+  {{monNombre}} 
 
   <!-- script vuejs -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
